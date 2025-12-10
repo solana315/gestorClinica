@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
-// Debug - ver se as variáveis estão a ser lidas
+// Ver se as variáveis estão a ser lidas
 console.log('DB_DIALECT:', process.env.DB_DIALECT);
 console.log('DB_NAME:', process.env.DB_NAME);
 console.log('DB_USER:', process.env.DB_USER);

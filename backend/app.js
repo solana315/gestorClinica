@@ -2,11 +2,14 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors'); 
+const route = require("./src/routes/route");
+
+
 
 const sequelize = require('./src/models/database');  
-const { initModels } = require("./src/models/init-models");  // ← IMPORTA PRIMEIRO!
+const { initModels } = require("./src/models/init-models");  
 
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 3000);
 
 app.use(express.json());
 app.use(cors({
@@ -32,3 +35,6 @@ connectDB().then(() => {
     console.log(` Servidor a correr na porta ${app.get('port')}`);
   });
 });
+
+//Login
+app.use("/auth", route);
