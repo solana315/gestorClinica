@@ -3,13 +3,14 @@ const express = require('express');
 const app = express();
 const cors = require('cors'); 
 const route = require("./src/routes/route");
+const registerRoute = require("./src/routes/route");
 
 
 
 const sequelize = require('./src/models/database');  
 const { initModels } = require("./src/models/init-models");  
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 
 app.use(express.json());
 app.use(cors({
@@ -38,3 +39,5 @@ connectDB().then(() => {
 
 //Login
 app.use("/auth", route);
+// Register
+app.use("/auth", registerRoute);

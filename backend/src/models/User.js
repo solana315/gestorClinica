@@ -40,11 +40,21 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      sexo: DataTypes.STRING,
-      endereco: DataTypes.STRING,
-      nif: DataTypes.STRING,
-      data_nascimento: DataTypes.DATE,
-      numero_utente: DataTypes.STRING,
+      sexo: {
+        type: DataTypes.STRING,
+      },
+      endereco: {
+        type: DataTypes.STRING,
+      },
+      nif: {
+        type: DataTypes.STRING,
+      },
+      data_nascimento: {
+        type: DataTypes.DATE,
+      },
+      numero_utente: {
+        type: DataTypes.STRING,
+      }
     },
     {
       tableName: "utilizador",
