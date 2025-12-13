@@ -41,3 +41,6 @@ connectDB().then(() => {
 app.use("/auth", route);
 // Register
 app.use("/auth", registerRoute);
+
+// Disponibiliza rotas de registo na raiz para endpoints como /listusers
+app.use("/", registerRoute);

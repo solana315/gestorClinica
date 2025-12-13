@@ -94,7 +94,6 @@ controller.list_users = async (req, res) => {
 		const queryId = req.query && req.query.id;
 		const nome = req.query && req.query.nome;
 
-		// Prioriza id em params, depois id em query
 		const idToFind = paramId || queryId;
 		if (idToFind) {
 			const user = await User.findByPk(idToFind, { attributes: { exclude: ['senha'] } });
@@ -102,7 +101,7 @@ controller.list_users = async (req, res) => {
 			return res.status(200).json(user);
 		}
 
-		// Pesquisa por nome (parcial, case-insensitive)
+		// Pesquisa por nome 
 		if (nome) {
 			const users = await User.findAll({
 				where: sequelize.where(sequelize.fn('LOWER', sequelize.col('nome')), Op.like, `%${nome.toLowerCase()}%`),
@@ -111,7 +110,7 @@ controller.list_users = async (req, res) => {
 			return res.status(200).json(users);
 		}
 
-		// Sem filtros: retorna todos (sem senha)
+		//retorna todos
 		const users = await User.findAll({ attributes: { exclude: ['senha'] } });
 		return res.status(200).json(users);
 	} catch (error) {
@@ -119,8 +118,6 @@ controller.list_users = async (req, res) => {
 		return res.status(500).json({ message: 'Erro do servidor' });
 	}
 };
-
-
 
 
 

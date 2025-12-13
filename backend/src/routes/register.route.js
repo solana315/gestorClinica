@@ -11,7 +11,7 @@ router.post('/register', registerController.register);
 router.delete('/user/:id', registerController.user_delete);
 
 // Listar utilizadores e procurar por id/nome
-router.get('/users', registerController.list_users);
-router.get('/users/:id', registerController.list_users);
+router.get('/listusers', registerController.list_users);
+router.get('/listusers/:id', registerController.list_users);
 
 module.exports = router;
