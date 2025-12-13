@@ -1,7 +1,7 @@
-// models/User.js
+// src/models/User.js
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
+    'User',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
       },
       tipo: {
-        type: DataTypes.ENUM("admin", "user"),
+        type: DataTypes.ENUM('admin', 'user'),
         allowNull: false,
-        defaultValue: "user",
+        defaultValue: 'user',
       },
       ativo: {
         type: DataTypes.BOOLEAN,
@@ -40,24 +40,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      sexo: {
-        type: DataTypes.STRING,
-      },
-      endereco: {
-        type: DataTypes.STRING,
-      },
-      nif: {
-        type: DataTypes.STRING,
-      },
-      data_nascimento: {
-        type: DataTypes.DATE,
-      },
-      numero_utente: {
-        type: DataTypes.STRING,
-      }
+      sexo: DataTypes.STRING,
+      endereco: DataTypes.STRING,
+      nif: DataTypes.STRING,
+      data_nascimento: DataTypes.DATE,
+      numero_utente: DataTypes.STRING,
     },
     {
-      tableName: "utilizador",
+      tableName: 'utilizador',
       timestamps: false,
     }
   );

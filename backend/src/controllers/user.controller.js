@@ -1,10 +1,15 @@
 const bcrypt = require('bcryptjs');
 const sequelize = require('../models/database');
 const { initModels } = require('../models/init-models');
-const { User } = initModels(sequelize);
+const models = initModels(sequelize);
+const { User } = models;
+
+
+
 
 // Regista um novo utilizador
-const register = async (req, res) => {
+const controller = {};
+controller.register = async (req, res) => {
 	try {
 		const {
 			nome,
@@ -61,6 +66,32 @@ const register = async (req, res) => {
 	}
 };
 
-module.exports = {
-	register,
+
+// Apaga um utilizador por id
+controller.user_delete = async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		if (!id) return res.status(400).json({ message: 'ID do utilizador em falta' });
+
+		const user = await User.findByPk(id);
+		if (!user) return res.status(404).json({ message: 'Utilizador não encontrado' });
+
+		await user.destroy();
+
+		return res.status(200).json({ message: 'Utilizador apagado com sucesso' });
+	} catch (error) {
+		console.error('Erro ao apagar utilizador:', error);
+		return res.status(500).json({ message: 'Erro do servidor' });
+	}
 };
+
+
+controller.list_users = async (req, res) =>
+
+
+
+
+
+
+module.exports = controller;

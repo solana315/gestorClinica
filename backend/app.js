@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors'); 
 const route = require("./src/routes/route");
-const registerRoute = require("./src/routes/route");
+const registerRoute = require("./src/routes/register.route");
 
 
 
