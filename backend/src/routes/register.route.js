@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/user.controller');
+const registerController = require('../controllers/register.controller');
 
 console.log('register.route loaded');
 
 // Registar novo utilizador
-router.post('/register', userController.register);
+router.post('/register', registerController.register);
 
 // Apagar utilizador por id (params)
-router.delete('/user/:id', userController.user_delete);
+router.delete('/user/:id', registerController.user_delete);
+
+// Listar utilizadores e procurar por id/nome
+router.get('/users', registerController.list_users);
+router.get('/users/:id', registerController.list_users);
 
 module.exports = router;
