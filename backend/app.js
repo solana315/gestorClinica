@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors'); 
 const route = require("./src/routes/route");
 const registerRoute = require("./src/routes/register.route");
+const planoRoute = require("./src/routes/router.plano");
 
 
 
@@ -38,9 +39,12 @@ connectDB().then(() => {
 });
 
 //Login
-app.use("/auth", route);
+app.use("/login", route);
 // Register
-app.use("/auth", registerRoute);
+app.use("/register", registerRoute);
 
 // Disponibiliza rotas de registo na raiz para endpoints como /listusers
 app.use("/", registerRoute);
+
+// Rotas de plano
+app.use('/plano', planoRoute);
