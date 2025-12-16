@@ -4,7 +4,8 @@ const app = express();
 const cors = require('cors'); 
 const route = require("./src/routes/route");
 const registerRoute = require("./src/routes/register.route");
-const planoRoute = require("./src/routes/router.plano");
+const planoRoute = require("./src/routes/route.plano");
+const dependentesRoute = require("./src/routes/route.dependentes");
 
 
 
@@ -48,3 +49,7 @@ app.use("/", registerRoute);
 
 // Rotas de plano
 app.use('/plano', planoRoute);
+
+// Rotas de dependentes
+app.use('/dependentes', dependentesRoute);
+

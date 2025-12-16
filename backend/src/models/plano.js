@@ -1,41 +1,41 @@
 // src/models/plano.js
 module.exports = (sequelize, DataTypes) => {
-  const Plano = sequelize.define('plano_tratamento', {
-    id_tratamento: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    data_inicio: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
-    data_fim: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
-    descricao: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    status: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-        id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'utilizador',
-        key: 'id',
+  const Plano = sequelize.define(
+    'PlanoTratamento',
+    {
+      id_tratamento: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+      data_inicio: DataTypes.DATE,
+      data_fim: DataTypes.DATE,
+      descricao: DataTypes.STRING,
+      status: DataTypes.STRING,
+
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'utilizador',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
     },
-  }, {
-    tableName: 'plano_tratamento',
-    timestamps: false,
-  });
+    {
+      tableName: 'plano_tratamento',
+      timestamps: false,
+    }
+  );
+
+  Plano.associate = (models) => {
+    Plano.belongsTo(models.User, {
+      foreignKey: 'id',
+      as: 'utilizador',
+    });
+  };
 
   return Plano;
 };
