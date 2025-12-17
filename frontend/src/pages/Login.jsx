@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/Login.css'
 
-function Login() {
+function Login({ navigateTo }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -21,82 +21,95 @@ function Login() {
 
   return (
     <div className="login-container">
+      {/* Left Side */}
       <div className="login-left">
         <div className="logo-section">
-          <img src={clinimolelosLogo} alt="Clinimolelos" className="logo" />
-          <h1>CLINIMOLELOS</h1>
-          <p className="tagline">Medicina · Dentária</p>
+          <div className="logo-content">
+            <div className="logo-icon">m</div>
+            <h1>CLINIMOLELOS</h1>
+            <p className="tagline">Medicina · Dentária</p>
+          </div>
           <p className="description">
-            Aceda ao sistema clínico para gerir Horários,<br />
-            Consultas, Pacientes e Faturação.
+            Aceda ao sistema clínico para gerir Horários, Consultas, Pacientes e Faturação.
           </p>
         </div>
       </div>
 
+      {/* Right Side */}
       <div className="login-right">
-        <form className="login-form" onSubmit={handleLogin}>
+        <div className="login-card">
           <div className="form-header">
             <span className="arrow">→</span>
             <h2>Entrar na Conta</h2>
           </div>
 
-          <div className="form-group">
-            <label htmlFor="email">E-mail</label>
-            <div className="input-wrapper">
-              <span className="input-icon">✉</span>
-              <input
-                type="email"
-                id="email"
-                placeholder="nome@exemplo.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+          <form className="login-form" onSubmit={handleLogin}>
+            <div className="form-group">
+              <label htmlFor="email">E-mail</label>
+              <div className="input-wrapper">
+                <span className="input-icon">✉</span>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="nome@exemplo.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Palavra-passe</label>
-            <div className="input-wrapper">
-              <span className="input-icon">🔒</span>
-              <input
-                type={showPassword ? 'text' : 'password'}
-                id="password"
-                placeholder="******"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+            <div className="form-group">
+              <label htmlFor="password">Palavra-passe</label>
+              <div className="input-wrapper">
+                <span className="input-icon">🔒</span>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="forgot-password-section">
-            <label className="forgot-password-label">
-              <span className="icon">🔄</span>
+            <div className="forgot-password-section">
               <button
                 type="button"
                 className="forgot-password-btn"
                 onClick={handleForgotPassword}
               >
-                Recuperar<br />Palavra-passe
+                <span>🔄</span>
+                <span>Recuperar<br />Palavra-passe</span>
               </button>
-            </label>
-            <button type="submit" className="login-btn">
-              <span className="arrow">→</span>Entrar
-            </button>
-          </div>
+              <button type="submit" className="login-btn">
+                <span>→</span> Entrar
+              </button>
+            </div>
 
-          <div className="signup-section">
-            <p>Ainda não tem conta?</p>
-            <button
-              type="button"
-              className="signup-btn"
-              onClick={handleSignUp}
+            <div className="signup-section">
+              <p>Ainda não te conta?</p>
+              <button
+                type="button"
+                className="signup-btn"
+                onClick={() => navigateTo('register')}
+              >
+                <span>👤</span> Criar Conta
+              </button>
+            </div>
+          </form>
+
+          <div className="back-link">
+            <button 
+              type="button" 
+              className="back-btn"
+              onClick={() => navigateTo('home')}
             >
-              <span className="icon">👤</span>Criar Conta
+              ← Voltar à Página Inicial
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   )
