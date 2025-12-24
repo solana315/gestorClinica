@@ -1,30 +1,33 @@
-import React from 'react'
-import '../App.css'
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import EventIcon from '@mui/icons-material/Event';
+import EditCalendarIcon from '@mui/icons-material/EditCalendar';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
 
 export default function Sidebar() {
-  const items = [
-    { icon: '📊', label: 'Dashboard' },
-    { icon: '🧑‍⚕️', label: 'Gerir Pacientes' },
-    { icon: '📅', label: 'Consultas' },
-    { icon: '🗓️', label: 'Editar Agenda' },
-    { icon: '⚙️', label: 'Alteração de Dados' },
-    { icon: '🔒', label: 'Administradores' },
-    { icon: '❓', label: 'Help' },
-  ]
+const items = [
+  { icon: <DashboardIcon />, label: 'Dashboard' },
+  { icon: <PeopleIcon />, label: 'Gerir Pacientes' },
+  { icon: <EventIcon />, label: 'Consultas' },
+  { icon: <EditCalendarIcon />, label: 'Editar Agenda' },
+  { icon: <SettingsIcon />, label: 'Alteração de Dados' },
+  { icon: <AdminPanelSettingsIcon />, label: 'Administradores' },
+  { icon: <HelpOutlineIcon />, label: 'Help' },
+];
+
 
   return (
-    <aside className="sidebar" role="navigation">
-      <nav className="sidebar-nav">
-        <ul className="sidebar-list">
-          {items.map((item) => (
-            <li className="sidebar-item" key={item.label}>
-              <span className="sidebar-icon">{item.icon}</span>
-              <span className="sidebar-label">{item.label}</span>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <div className="sidebar-footer">CLINIMOLELOS</div>
-    </aside>
-  )
+    <div>
+      {items.map(([icon, label]) => (
+        <div key={label} style={{ display: 'flex', gap: 8 }}>
+          {icon}
+          <span>{label}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
+//newbranchcommits
