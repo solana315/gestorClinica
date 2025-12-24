@@ -1,12 +1,18 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
-import Login from './pages/Login'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Login from './Login'
+import PaginaInicial from './PaginaInicial'
 
 function App() {
   return (
     <div className="app">
       <Routes>
-        <Login />
+        {/* proteger rotas para nao ser acessivel pela barra de pesquisa */}
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/pagina-inicial" element={<PaginaInicial />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </div>
   )

@@ -1,8 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --topbar-height: 72px;
+}
+
+body {
+  padding-top: var(--topbar-height);
 }
 
 .logo {
@@ -40,3 +56,160 @@
 .read-the-docs {
   color: #888;
 }
+
+/* LOGIN PAGE --------------------------------------------------------------- */
+.login-bg {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7d9c6; 
+  background-image: url('./assets/FundoLogin.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.login-card {
+  width: 80%;
+  max-width: 820px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 8px 30px rgba(18, 22, 26, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-logo {
+  width: 36%;
+  max-width: 420px;
+  height: auto;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .login-logo { width: 56%; max-width: 320px }
+}
+
+.login-form {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.login-label {
+  display: block;
+  text-align: left;
+  margin: 0.6rem 0 0.3rem 0.4rem;
+  color: #14292c;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.login-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #153e45;
+  border-radius: 4px;
+  outline: none;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+.login-input + .login-label {
+  margin-top: 1rem;
+}
+
+.login-input:focus {
+  box-shadow: 0 0 0 3px rgba(21, 62, 69, 0.06);
+  border-color: #a58b0a;
+}
+
+.login-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  margin-top: 0.5rem;
+  background: #a58b0a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-btn:hover { opacity: 0.95 }
+
+/* FIM LOGIN PAGE ----------------------------------------------------------- */
+
+/* PaginaInicial----------------------------------------------------------- */
+/* header PaginaInicial */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  height: var(--topbar-height);
+  box-sizing: border-box;
+  background: #EBE6DC;
+  backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  z-index: 1000;
+}
+.top-bar-left { display:flex; align-items:center }
+.top-bar-text { display:flex; flex-direction:column; justify-content:center }
+
+.top-bar-icon {
+  width: 42px; height:42px; border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  background:#f0f0f0; margin-right:12px; font-size:18px;
+}
+.top-title { font-family: 'Poppins', sans-serif; font-weight:600; font-size:20px; }
+.top-sub { font-family: 'Poppins', sans-serif; font-size:14px; color:#555 }
+.top-bar-right { font-family: 'Poppins', sans-serif; font-weight:600; font-size:18px }
+/*fim header paginaInicial*/
+
+
+/* Layout for PaginaInicial: sidebar + main */
+.page-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 1.25rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 220px;
+  background: #ffffff;
+  border-right: 1px solid rgba(0,0,0,0.04);
+  padding: 12px;
+  box-sizing: border-box;
+  height: calc(100vh - var(--topbar-height));
+  position: sticky;
+  top: var(--topbar-height);
+}
+
+.sidebar-list { list-style: none; padding: 0; margin: 0 }
+.sidebar-item { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 6px; cursor: pointer; color: #333 }
+.sidebar-item:hover { background: #f5f5f5 }
+.sidebar-icon { font-size: 18px; display: inline-flex; align-items: center; justify-content: center; width: 28px }
+.sidebar-footer { margin-top: 12px; padding: 8px; font-weight: 700; text-align: center; font-size: 12px; color: #888 }
+
+.page-main { flex: 1; padding: 12px 18px; min-height: calc(100vh - var(--topbar-height)); text-align: left; background: #faf9f7 }
+
+
+
+/* PaginaInicial----------------------------------------------------------- */
