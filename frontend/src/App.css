@@ -13,6 +13,16 @@ html, body, #root {
   padding: 0;
 }
 
+/* Apply Poppins as the global font for all UI elements */
+html, body {
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Ensure form controls inherit the same font */
+input, button, textarea, select {
+  font-family: inherit;
+}
+
 :root {
   --topbar-height: 72px;
 }
@@ -149,7 +159,100 @@ body {
 
 /* FIM LOGIN PAGE ----------------------------------------------------------- */
 
+
+
+
+
+
+
+
+
+
+
+
 /* PaginaInicial----------------------------------------------------------- */
+
+/* Table styles for Consultas list */
+.table-wrap { overflow-x: auto; margin-top: 18px }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px }
+.data-table thead th { background: #dcdcdc; padding: 10px 12px; text-align: left; font-weight: 600 }
+.data-table tbody td { padding: 12px; border-bottom: 1px solid #efefef }
+.data-table tbody tr:nth-child(odd) { background: #f2f2f2 }
+.consultas-title { font-size: 18px; margin: 10px 0 }
+
+
+/* Sidebar component styles moved from components/Sidebar/Sidebar.css */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: #f6f2ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid #e1dedb;
+}
+
+.sidebar .profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #cfc6b8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.app-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.user-name {
+  font-size: 13px;
+  color: #666;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  /* increase spacing between words for readability */
+  word-spacing: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+}
+
+.nav-link:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.sidebar-bottom {
+  font-weight: 700;
+  font-size: 12px;
+  color: #999;
+  padding: 6px 0;
+}
 /* header PaginaInicial */
 .top-bar {
   position: fixed;
@@ -169,7 +272,10 @@ body {
   z-index: 1000;
 }
 .top-bar-left { display:flex; align-items:center }
-.top-bar-text { display:flex; flex-direction:column; justify-content:center }
+.top-bar-text { display:flex; flex-direction:column; justify-content:center; text-align: left }
+
+/* Ensure the title and subtitle are left-aligned (override global center) */
+.top-title, .top-sub { text-align: left; margin: 0 }
 
 .top-bar-icon {
   width: 42px; height:42px; border-radius: 50%;
@@ -182,7 +288,7 @@ body {
 /*fim header paginaInicial*/
 
 
-/* Layout for PaginaInicial: sidebar + main */
+/*sidebar  */
 .page-body {
   display: flex;
   align-items: flex-start;
@@ -197,19 +303,27 @@ body {
   border-right: 1px solid rgba(0,0,0,0.04);
   padding: 12px;
   box-sizing: border-box;
-  height: calc(100vh - var(--topbar-height));
+  /* add extra top gap between header and sidebar */
+  top: calc(var(--topbar-height) + 12px);
+  height: calc(100vh - var(--topbar-height) - 12px);
   position: sticky;
-  top: var(--topbar-height);
 }
 
 .sidebar-list { list-style: none; padding: 0; margin: 0 }
 .sidebar-item { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 6px; cursor: pointer; color: #333 }
 .sidebar-item:hover { background: #f5f5f5 }
-.sidebar-icon { font-size: 18px; display: inline-flex; align-items: center; justify-content: center; width: 28px }
+.sidebar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
 .sidebar-footer { margin-top: 12px; padding: 8px; font-weight: 700; text-align: center; font-size: 12px; color: #888 }
 
 .page-main { flex: 1; padding: 12px 18px; min-height: calc(100vh - var(--topbar-height)); text-align: left; background: #faf9f7 }
 
-
+/*sidebar*/
 
 /* PaginaInicial----------------------------------------------------------- */
