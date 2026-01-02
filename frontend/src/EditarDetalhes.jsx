@@ -57,7 +57,7 @@ export default function EditarDetalhes(){
             <Table />
           </section>
 
-          <aside style={{width: 260, marginLeft: 'auto'}}>
+          <aside style={{width: 260}}>
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <div style={{width:96, height:96, borderRadius: '50%', background:'#ddd', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12}}> </div>
               <h4>Joana Oliveira</h4>

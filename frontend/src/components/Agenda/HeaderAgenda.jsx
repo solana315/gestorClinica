@@ -2,7 +2,7 @@ import React from 'react'
 import '../../App.css'
 import { useNavigate } from 'react-router-dom'
 
-export default function Header({ actionText = 'Ver Exames', userName = 'Joana Oliveira' }) {
+export default function Header({ actionText = 'Editar Agenda', userName = 'Joana Oliveira' }) {
     const navigate = useNavigate()
 
     function handleBack() {

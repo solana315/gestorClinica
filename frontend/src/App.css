@@ -633,3 +633,122 @@ body {
 }
 
 /*FIM EXAMES-------------------------------*/
+
+
+
+/* EDITAR AGENDA --------------------------------- */
+.editar-agenda,
+.ve-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 48px;
+  box-sizing: border-box;
+}
+
+.exam-card {
+  border: 1.6px solid #c9b294;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(28, 20, 10, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.spacer {
+  display: none;
+}
+
+.form-panel {
+  flex: 0 0 72%;
+  max-width: 980px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-left: 24px;
+}
+
+.form-panel .exam-card {
+  width: 100%;
+}
+
+.exam-card label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #0f0f0f;
+}
+
+.exam-card input,
+.exam-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #c9b294;
+  background: transparent;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.exam-card textarea { resize: vertical; }
+
+.exam-card .actions,
+.exam-card .action-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-remove {
+  background: #cfc6b8;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-save {
+  background: #f0b83b;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.exam-card .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .ve-main,
+  .editar-agenda {
+    padding: 20px;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: block;
+  }
+
+  .spacer { display: none }
+
+  .form-panel { width: 100%; max-width: 100%; padding-left: 0 }
+}
+
+/* FIM EDITAR AGENDA -----------------------------------------------*/
