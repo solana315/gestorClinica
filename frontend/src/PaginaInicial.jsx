@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/header'
 import Sidebar from './components/Sidebar/Sidebar'
+import FiltrarConsultas from './components/PaginaInicial/FiltrarConsultas'
 import './App.css'
 
 export default function PaginaInicial() {
@@ -12,6 +13,9 @@ export default function PaginaInicial() {
 
 				<section className="consultas-section">
 					<h2 className="consultas-title">Consultas</h2>
+
+					<FiltrarConsultas />
+					<p className="consultas-found">Encontrados:</p>
 					<div className="table-wrap">
 						<table className="data-table" aria-label="Lista de consultas">
 							<thead>
