@@ -1,0 +1,46 @@
+.wc-root {
+  font-family: Inter, system-ui, Arial, sans-serif;
+}
+.wc-header { display:flex; }
+.wc-time-col { width:80px; flex:0 0 80px; }
+.wc-time-col .wc-time-cell { height:40px; border-bottom:1px solid #eee; padding:4px 8px; color:#666 }
+.wc-day-col-header { flex:1; padding:8px; text-align:center; border-bottom:1px solid #eee; background:#fafafa }
+.wc-body { display:flex; }
+.wc-days-wrap { display:flex; flex:1; position:relative }
+.wc-day-col { flex:1; border-left:1px solid #f0f0f0; position:relative }
+.wc-day-grid { position:relative; }
+.wc-appointment {
+  position:absolute;
+  left:8px;
+  right:8px;
+  border-radius:6px;
+  color:#033;
+  padding:6px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.05);
+  overflow:hidden;
+  font-size:13px;
+}
+.wc-appointment-title { font-weight:600; font-size:13px }
+.wc-appointment-meta { font-size:11px; color:rgba(0,0,0,0.6) }
+
+.mc-root { font-family: Inter, system-ui, Arial, sans-serif }
+.mc-header { display:flex; justify-content:space-between; align-items:center }
+.mc-title { font-weight:600 }
+.mc-grid { display:grid; grid-template-columns:repeat(7, 1fr); gap:6px; margin-top:8px }
+.mc-cell { padding:6px; text-align:center; border-radius:4px }
+.mc-cell.today { background:#f0f8ff }
+.mc-weekday { font-size:12px; color:#777; text-align:center }
+
+/* page container tweaks */
+.app-container .page-layout { background:#f6f6f7 }
+
+/* white calendar panel to contain the weekly grid */
+.calendar-panel {
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  min-height: 520px; /* adjusted to fit 08:00-19:00 at 40px per hour + header */
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+
+.calendar-panel .wc-body { background: transparent }

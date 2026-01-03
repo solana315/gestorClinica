@@ -8,7 +8,8 @@ export const menuItems = [
     )
   },
   {
-    label: 'Horário',
+    label: 'Agenda',
+    path: '/agenda',
     icon: (
       <svg className="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.2" fill="none"/><path d="M3 10h18" stroke="currentColor" strokeWidth="1.2"/></svg>
     )

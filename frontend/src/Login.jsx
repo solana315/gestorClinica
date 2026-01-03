@@ -13,7 +13,7 @@ export default function Login() {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		// TODO: integrar com backend (autenticação)
-		navigate('/pagina-inicial')
+		navigate('/pagina-inicial', { replace: true })
 	}
 
 	return (
