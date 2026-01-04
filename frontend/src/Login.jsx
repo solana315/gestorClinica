@@ -79,7 +79,11 @@ export default function Login() {
 						</div>
 
 						<div className="login-actions">
-							<button className="login-forgot" type="button">
+							<button
+								className="login-forgot"
+								type="button"
+								onClick={() => navigate('/recuperar-palavra-passe')}
+							>
 								<RefreshCcw className="login-forgot-icon" aria-hidden="true" />
 								<span>
 									Recuperar
