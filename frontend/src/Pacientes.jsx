@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import './App.css'
+import { useNavigate } from 'react-router-dom'
+import Sidebar from './components/Sidebar/Sidebar'
 import {
 	Calendar,
 	ClipboardList,
@@ -17,6 +19,7 @@ import {
 import logoClinimolelos from './assets/Logo-CliniMolelos.png'
 
 export default function Pacientes() {
+	const navigate = useNavigate()
 	const [query, setQuery] = useState('')
 
 	const rows = useMemo(
@@ -63,54 +66,11 @@ export default function Pacientes() {
 
 	return (
 		<div className="patients-shell">
-			<aside className="patients-sidebar" aria-label="Navegação">
-				<div className="patients-sidebar-top">
-					<div className="patients-logo">
-						<img
-							className="patients-logo-img"
-							src={logoClinimolelos}
-							alt="Clinimolelos"
-							decoding="async"
-							loading="eager"
-							draggable="false"
-						/>
-					</div>
-
-					<nav className="patients-nav" aria-label="Menu">
-						<button className="patients-nav-item" type="button">
-							<LayoutDashboard className="patients-nav-icon" aria-hidden="true" />
-							<span>Painel</span>
-						</button>
-						<button className="patients-nav-item" type="button">
-							<Calendar className="patients-nav-icon" aria-hidden="true" />
-							<span>Horário</span>
-						</button>
-						<button className="patients-nav-item" type="button">
-							<ClipboardList className="patients-nav-icon" aria-hidden="true" />
-							<span>Consultas</span>
-						</button>
-						<button className="patients-nav-item is-active" type="button">
-							<Users className="patients-nav-icon" aria-hidden="true" />
-							<span>Pacientes</span>
-						</button>
-						<button className="patients-nav-item" type="button">
-							<Stethoscope className="patients-nav-icon" aria-hidden="true" />
-							<span>Colaboradores</span>
-						</button>
-					</nav>
-				</div>
-
-				<div className="patients-sidebar-bottom">
-					<button className="patients-logout" type="button">
-						<LogOut className="patients-logout-icon" aria-hidden="true" />
-						Terminar Sessão
-					</button>
-				</div>
-			</aside>
+			<Sidebar />
 
 			<div className="patients-main">
 				<header className="patients-header" aria-label="Topo">
-					<div className="patients-breadcrumb">Pacientes &gt; João Silva</div>
+					<div className="patients-breadcrumb">Pacientes </div>
 					<div className="patients-profile">
 						<div className="patients-profile-img" aria-hidden="true">
 							<UserRound className="patients-profile-icon" />
@@ -171,7 +131,11 @@ export default function Pacientes() {
 													<Eye className="patients-action-icon" aria-hidden="true" />
 													Ver
 												</button>
-												<button className="patients-action" type="button">
+												<button 
+													className="patients-action" 
+													type="button"
+													onClick={() => navigate('/editar-detalhes')}
+												>
 													<Pencil className="patients-action-icon" aria-hidden="true" />
 													Editar
 												</button>
@@ -187,7 +151,12 @@ export default function Pacientes() {
 						</div>
 					</section>
 
-					<button className="patients-fab" type="button" aria-label="Novo paciente">
+					<button 
+						className="patients-fab" 
+						type="button" 
+						aria-label="Novo paciente"
+						onClick={() => navigate('/registar')}
+					>
 						<span className="patients-fab-plus" aria-hidden="true">
 							+
 						</span>

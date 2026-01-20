@@ -918,8 +918,7 @@ body {
 
   position: fixed;
   inset: 0;
-  display: grid;
-  grid-template-columns: 300px 1fr;
+  display: flex;
   background: var(--patients-bg);
   z-index: 1;
 }
@@ -1013,6 +1012,7 @@ body {
   display: grid;
   grid-template-rows: 60px 1fr;
   min-width: 0;
+  flex: 1;
 }
 
 .patients-header {
@@ -1634,7 +1634,11 @@ body {
 }
 
 .sidebar .nav-link.is-active {
-  background: #f2e7cf;
+  background: transparent;
+}
+
+.sidebar .nav-link.is-active:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .sidebar-logout {
@@ -1713,7 +1717,8 @@ body {
 .dashboard-main {
   flex: 1;
   margin-left: var(--sidebar-width);
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .dashboard-topbar {
@@ -1753,9 +1758,10 @@ body {
 
 .dashboard-content {
   padding: 26px;
-  background: #faf9f7;
-  min-height: calc(100vh - var(--topbar-height));
+  background: #f6f6f7;
+  height: calc(100vh - var(--topbar-height));
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .dashboard-actions {

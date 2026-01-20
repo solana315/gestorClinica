@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Sidebar from './components/Sidebar/Sidebar'
 import './App.css'
 
 export default function PaginaInicial() {
+	const navigate = useNavigate()
 	return (
 		<div className="dashboard-shell">
 			<Sidebar />
@@ -22,7 +24,11 @@ export default function PaginaInicial() {
 							<span className="dashboard-btn-icon" aria-hidden="true">⟳</span>
 							Atualizar
 						</button>
-						<button type="button" className="dashboard-btn dashboard-btn-primary">
+						<button 
+							type="button" 
+							className="dashboard-btn dashboard-btn-primary"
+							onClick={() => navigate('/agenda')}
+						>
 							<span className="dashboard-btn-icon" aria-hidden="true">＋</span>
 							Novo Agendamento
 						</button>

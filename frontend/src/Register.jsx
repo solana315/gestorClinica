@@ -87,7 +87,7 @@ export default function Register() {
 										id="register-phone"
 										type="tel"
 										className="register-input"
-										placeholder="+351 ___ ___ ___"
+										placeholder="+351 "
 										value={phone}
 										onChange={(e) => setPhone(e.target.value)}
 										autoComplete="tel"
