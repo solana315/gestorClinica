@@ -6,6 +6,7 @@ const { Consulta } = models;
 
 const controller = {};
 
+//GET CONSULTAS
 controller.listar_consultas = async (req, res) => {
   try {
     const consultas = await Consulta.findAll({
@@ -25,6 +26,7 @@ controller.listar_consultas = async (req, res) => {
   }
 };
 
+//GET CONSULTA ESPECIFICA
 controller.obter_consulta = async (req, res) => {
   try {
     const { id_consulta } = req.params;
