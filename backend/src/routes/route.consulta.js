@@ -4,19 +4,22 @@ const consultaController = require('../controllers/controller.consulta');
 
 console.log('route.consulta loaded');
 
-// GET /consultas -> lista todas as consultas
+// GET lista todas as consultas
 router.get('/', consultaController.listar_consultas);
 
-// GET /consultas/:id_consulta -> obter uma consulta específica
+// GET obter uma consulta específica
 router.get('/:id_consulta', consultaController.obter_consulta);
 
-// POST /consultas -> cria uma nova consulta
+// POST cria uma nova consulta
 router.post('/', consultaController.criar_consulta);
 
 // PATCH /consultas/:id_consulta -> edita uma consulta existente
 router.patch('/:id_consulta', consultaController.editar_consulta);
 
-// PATCH /consultas/:id_consulta/cancelar -> cancela se faltarem >=48h
+// PATCH cancelamento até 48h antes
 router.patch('/:id_consulta/cancelar', consultaController.cancelar_consulta);
+
+// PATCH remarcar 
+router.patch('/:id_consulta/remarcar', consultaController.remarcar_consulta);
 
 module.exports = router;

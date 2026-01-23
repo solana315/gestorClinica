@@ -94,6 +94,7 @@ controller.criar_consulta = async (req, res) => {
   }
 };
 
+//EDITAR
 controller.editar_consulta = async (req, res) => {
   try {
     const { id_consulta } = req.params;
@@ -137,6 +138,82 @@ controller.editar_consulta = async (req, res) => {
       message: 'Erro do servidor',
       error: error.message
     });
+  }
+};
+
+//CANCELAR CONSULTA +ATCH (até 48h)
+controller.cancelar_consulta = async (req, res) => {
+  try {
+    const { id_consulta } = req.params;
+
+    const consulta = await Consulta.findByPk(id_consulta);
+    if (!consulta) {
+      return res.status(404).json({ message: 'Consulta não encontrada' });
+    }
+
+    if (!consulta.data_consulta || !consulta.hora) {
+      return res.status(400).json({ message: 'Consulta sem data/hora definida' });
+    }
+
+    const agendadaPara = new Date(`${consulta.data_consulta}T${consulta.hora}`);
+    if (Number.isNaN(agendadaPara.getTime())) {
+      return res.status(400).json({ message: 'Data ou hora inválida na consulta' });
+    }
+
+    const diffHoras = (agendadaPara.getTime() - Date.now()) / (1000 * 60 * 60);
+    if (diffHoras < 48) {
+      return res.status(400).json({ message: 'Cancelamento só permitido até 48h antes da consulta' });
+    }
+
+    await consulta.update({ status: 'Cancelada' });
+    await consulta.reload();
+
+    return res.status(200).json({ message: 'Consulta cancelada com sucesso', consulta });
+  } catch (error) {
+    console.error('Erro ao cancelar consulta:', error);
+    return res.status(500).json({ message: 'Erro do servidor', error: error.message });
+  }
+};
+
+//REMARCAR CONSULTA
+controller.remarcar_consulta = async (req, res) => {
+  try {
+    const { id_consulta } = req.params;
+    const { data_consulta, hora } = req.body;
+
+    // Validação dos campos obrigatórios
+    if (!data_consulta || !hora) {
+      return res.status(400).json({ 
+        message: 'Campos obrigatórios: data da consulta e hora' 
+      });
+    }
+
+    const consulta = await Consulta.findByPk(id_consulta);
+    if (!consulta) {
+      return res.status(404).json({ message: 'Consulta não encontrada' });
+    }
+
+    // Validar 
+    const novaData = new Date(`${data_consulta}T${hora}`);
+    if (Number.isNaN(novaData.getTime())) {
+      return res.status(400).json({ message: 'Data ou hora inválida' });
+    }
+
+    // Atualiza para nova data/hora e coloca status Pendente (aguarda aprovação do gestor)
+    await consulta.update({ 
+      data_consulta, 
+      hora,
+      status: 'Pendente' 
+    });
+    await consulta.reload();
+
+    return res.status(200).json({ 
+      message: 'Consulta remarcada com sucesso. Aguarda aprovação do gestor.', 
+      consulta 
+    });
+  } catch (error) {
+    console.error('Erro ao remarcar consulta:', error);
+    return res.status(500).json({ message: 'Erro do servidor', error: error.message });
   }
 };
 
