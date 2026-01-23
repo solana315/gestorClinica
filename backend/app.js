@@ -8,6 +8,7 @@ const planoRoute = require("./src/routes/route.plano");
 const dependentesRoute = require("./src/routes/route.dependentes");
 const consultaRoute = require("./src/routes/route.consulta");
 const gestorRoute = require("./src/routes/route.gestor");
+const utilizadoresRoute = require("./src/routes/route.utilizadores");
 
 
 
@@ -60,4 +61,7 @@ app.use('/consultas', consultaRoute);
 
 // Rotas de gestores
 app.use('/gestores', gestorRoute);
+
+// Rotas de utilizadores
+app.use('/utilizadores', utilizadoresRoute);
 
