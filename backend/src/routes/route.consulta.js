@@ -16,4 +16,7 @@ router.post('/', consultaController.criar_consulta);
 // PATCH /consultas/:id_consulta -> edita uma consulta existente
 router.patch('/:id_consulta', consultaController.editar_consulta);
 
+// PATCH /consultas/:id_consulta/cancelar -> cancela se faltarem >=48h
+router.patch('/:id_consulta/cancelar', consultaController.cancelar_consulta);
+
 module.exports = router;
