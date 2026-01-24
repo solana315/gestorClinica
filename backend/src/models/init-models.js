@@ -5,12 +5,14 @@ function initModels(sequelize) {
   const Plano = require("./plano")(sequelize, DataTypes);
   const Dependente = require("./dependente")(sequelize, DataTypes);
   const Consulta = require("./consulta")(sequelize, DataTypes);
+  const HistoricoMedico = require("./historicoMedico")(sequelize, DataTypes);
 
   return {
     User,
     Plano,
     Dependente,
     Consulta,
+    HistoricoMedico,
   };
 }
 

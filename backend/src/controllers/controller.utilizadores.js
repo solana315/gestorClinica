@@ -30,7 +30,7 @@ controller.criar_utilizador = async (req, res) => {
       });
     }
 
-    // Verificar se email já existe (em qualquer tipo de utilizador)
+    // Verificar se email já existe 
     const existingEmail = await User.findOne({ where: { email } });
     if (existingEmail) {
       return res.status(409).json({ 
@@ -38,7 +38,7 @@ controller.criar_utilizador = async (req, res) => {
       });
     }
 
-    // Verificar se telefone já existe (em qualquer tipo de utilizador)
+    // Verificar se telefone já existe
     const existingPhone = await User.findOne({ where: { telefone } });
     if (existingPhone) {
       return res.status(409).json({ 
@@ -48,7 +48,7 @@ controller.criar_utilizador = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(senha, 10);
 
-    // Criar o utilizador (sempre tipo 'user', ignorando qualquer valor enviado)
+    // Criar o utilizador 
     const novoUtilizador = await User.create({
       nome,
       email,
@@ -104,7 +104,7 @@ controller.get_utilizadores = async (req, res) => {
   }
 };
 
-// Listar TODOS (para debug - incluindo admins)
+// Listar TODOS 
 controller.get_todos_utilizadores = async (req, res) => {
   try {
     const todos = await User.findAll({

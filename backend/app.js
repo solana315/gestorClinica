@@ -9,6 +9,7 @@ const dependentesRoute = require("./src/routes/route.dependentes");
 const consultaRoute = require("./src/routes/route.consulta");
 const gestorRoute = require("./src/routes/route.gestor");
 const utilizadoresRoute = require("./src/routes/route.utilizadores");
+const historicoRoute = require("./src/routes/route.historico");
 
 
 
@@ -64,4 +65,7 @@ app.use('/gestores', gestorRoute);
 
 // Rotas de utilizadores
 app.use('/utilizadores', utilizadoresRoute);
+
+// Rotas de histórico médico
+app.use('/api', historicoRoute);
 
