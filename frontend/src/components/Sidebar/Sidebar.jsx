@@ -13,6 +13,16 @@ export default function Sidebar() {
     return false
   }
 
+  const handleLogout = () => {
+    // Limpar dados da sessão
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    sessionStorage.clear()
+    
+    // Redirecionar para login
+    navigate('/login')
+  }
+
   return (
     <aside className="sidebar">
       <div className="sidebar-top">
@@ -46,7 +56,7 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      <button type="button" className="sidebar-logout">
+      <button type="button" className="sidebar-logout" onClick={handleLogout}>
         Terminar Sessão
       </button>
     </aside>

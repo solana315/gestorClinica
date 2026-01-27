@@ -40,45 +40,6 @@ body {
   background: #ebe6dc;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 /* LOGIN PAGE --------------------------------------------------------------- */
 
 .login-container {
@@ -1407,25 +1368,6 @@ body {
 }
 
 
-.sidebar {
-  width: var(--sidebar-width);
-  max-height: calc(100vh - var(--topbar-height));
-  background: #f6f2ec;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: border-box;
-  border-right: 1px solid #e1dedb;
-}
-
-.sidebar .profile {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
 .avatar {
   width: 48px;
   height: 48px;
@@ -1438,11 +1380,6 @@ body {
   font-weight: 700;
 }
 
-.app-title {
-  font-weight: 700;
-  font-size: 16px;
-}
-
 .user-name {
   font-size: 13px;
   color: #666;
@@ -1452,30 +1389,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.nav-link {
-  background: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  word-spacing: 6px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #333;
-}
-
-.nav-link:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.sidebar-bottom {
-  font-weight: 700;
-  font-size: 12px;
-  color: #999;
-  padding: 6px 0;
 }
 
 /* header PaginaInicial */
@@ -1657,44 +1570,6 @@ body {
   background: #f0efed;
 }
 
-.sidebar-list {
-  list-style: none;
-  padding: 0;
-  margin: 0
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #333
-}
-
-.sidebar-item:hover {
-  background: #f5f5f5
-}
-
-.sidebar-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-.sidebar-footer {
-  margin-top: 12px;
-  padding: 8px;
-  font-weight: 700;
-  text-align: center;
-  font-size: 12px;
-  color: #888
-}
-
 .page-main {
   flex: 1;
   padding: 12px 18px;
@@ -1704,6 +1579,8 @@ body {
 }
 
 /*sidebar*/
+
+
 
 /* PaginaInicial----------------------------------------------------------- */
 
@@ -2214,3 +2091,380 @@ body {
 }
 
 /* FIM EDITAR AGENDA -----------------------------------------------*/
+
+/* FIM EDITAR AGENDA -----------------------------------------------*/
+
+/* PAGINA EDITAR DETALHES (FICHA DO PACIENTE) ---------------------*/
+.app-container-flex {
+  display: flex;
+}
+
+.page-layout-flex {
+  flex: 1;
+}
+
+.patient-page {
+  padding: 20px 40px;
+}
+
+.patient-section {
+  margin-bottom: 30px;
+}
+
+.patient-section-large {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.patient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.patient-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.patient-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.patient-btn-secondary {
+  padding: 12px 20px;
+  border: 2px solid #b8956a;
+  background: white;
+  color: #b8956a;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.patient-btn-primary {
+  padding: 12px 20px;
+  background: #b8956a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.patient-btn-small {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.patient-btn-export {
+  padding: 8px 16px;
+  background: #b8956a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.patient-rgpd-btn {
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.patient-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.patient-section-subtitle {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.patient-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.patient-info-table {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.patient-info-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.patient-info-row:last-child {
+  border-bottom: none;
+}
+
+.patient-info-label {
+  padding: 16px 20px;
+  background: #f9f9f9;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.patient-info-value {
+  padding: 16px 20px;
+  font-size: 14px;
+}
+
+.patient-info-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  margin: 8px 0;
+}
+
+.patient-info-input:focus {
+  outline: none;
+  border-color: #b8956a;
+  box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.1);
+}
+
+.patient-info-input-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.patient-info-input-half {
+  flex: 1;
+  margin: 0;
+}
+
+.patient-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #f9f9f9;
+}
+
+.patient-card-inline {
+  margin-bottom: 12px;
+}
+
+.patient-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.patient-card-content-space {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.patient-card-body {
+  flex: 1;
+}
+
+.patient-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.patient-card-meta {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.patient-card-text {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+.patient-card-badge {
+  font-size: 12px;
+  color: #999;
+}
+
+.patient-card-tag {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.patient-plan-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px;
+  gap: 16px;
+  align-items: center;
+}
+
+.patient-status-badge {
+  padding: 4px 12px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.patient-date-text {
+  font-size: 13px;
+  color: #999;
+}
+
+/* Anexos Clínicos */
+.anexos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.anexo-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.anexo-preview {
+  width: 100%;
+  height: 200px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.anexo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.anexo-footer {
+  padding: 16px;
+}
+
+.anexo-info {
+  margin-bottom: 12px;
+}
+
+.anexo-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.anexo-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.anexo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.anexo-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.anexo-btn-view {
+  background: white;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.anexo-btn-download {
+  background: #b8956a;
+  color: white;
+}
+
+/* RGPD Consentimentos */
+.rgpd-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  padding: 16px;
+}
+
+.rgpd-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.rgpd-row:last-child {
+  border-bottom: none;
+}
+
+.rgpd-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.rgpd-value {
+  font-size: 14px;
+  color: #333;
+}
+
+.rgpd-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.rgpd-badge-accepted {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+@media (max-width: 900px) {
+  .anexos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FIM FICHA DO PACIENTE -------------------------------------------*/

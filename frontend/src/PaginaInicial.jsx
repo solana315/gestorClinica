@@ -17,7 +17,7 @@ export default function PaginaInicial() {
 						<span className="dashboard-user-name">Dra. Sofia Lima</span>
 					</div>
 				</header>
-
+ 
 				<section className="dashboard-content">
 					<div className="dashboard-actions" aria-label="Ações">
 						<button type="button" className="dashboard-btn dashboard-btn-ghost">
@@ -33,6 +33,9 @@ export default function PaginaInicial() {
 							Novo Agendamento
 						</button>
 					</div>
+
+
+{/*adicionar calendário funcional para ver as consultas do dia */}
 
 					<h2 className="dashboard-title">Área principal do dashboard</h2>
 
@@ -94,5 +97,7 @@ export default function PaginaInicial() {
 			</main>
 		</div>
 	)
+	{/*adicionem uma tabela de pacientes para levar a editardetalhes,
+	mas uma ligada a bd, criem nos componentes não façam tudo aqui que fica enorme */}
 }
 

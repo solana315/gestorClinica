@@ -1,80 +1,156 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/header'
 import Sidebar from './components/Sidebar/Sidebar'
+import Informacao from './components/Detalhes/Informacao'
+import Exames from './components/Detalhes/Exames'
+import AnexosClinicos from './components/Detalhes/AnexosClinicos'
+import RGPDConsentimentos from './components/Detalhes/RGPDConsentimentos'
 import './App.css'
-import Table from './components/Detalhes/Table'
 
 export default function EditarDetalhes(){
+  const [isEditing, setIsEditing] = useState(false)
+  const [patientData, setPatientData] = useState({
+    nomeCompleto: 'João Pedro da Silva',
+    dataNascimento: '14/02/1986',
+    numeroUtente: '123456789',
+    nif: '245 998 120',
+    telefone: '+351 915 222 333',
+    email: 'joao.silva@example.com',
+    dataRegisto: '10/03/2023'
+  })
+
+  const handleEdit = () => {
+    setIsEditing(true)
+  }
+
+  const handleSave = () => {
+    setIsEditing(false)
+    // Aqui pode adicionar a lógica para guardar os dados no backend
+    console.log('Dados guardados:', patientData)
+  }
+
+  const handleCancel = () => {
+    setIsEditing(false)
+    // Restaurar dados originais se necessário
+  }
+
+  const handleChange = (field, value) => {
+    setPatientData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
+
   return (
-    <div className="app-container" style={{display: 'flex'}}>
+    <div className="app-container app-container-flex">
       <Sidebar />
 
-      <main className="page-layout" style={{flex: 1}}>
-        <Header userName="Editar detalhes do Cliente" actionText="" />
+      <main className="page-layout page-layout-flex">
+        <Header userName="Ficha do Paciente" actionText="" />
 
-        <div className="page-main" style={{display: 'flex', gap: 24}}>
-          <section style={{flex: 1}}>
-            <h2 className="consultas-title">Editar detalhes do Cliente</h2>
+        <div className="patient-page">
 
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18, marginBottom: 20}}>
+
+          {/* RGPD / Consentimentos */}
+          <div className="patient-section">
+            <button className="patient-rgpd-btn">
+              RGPD / Consentimentos
+            </button>
+          </div>
+
+
+
+          {/* Botões */}
+          <div className="patient-header">
+            <h1 className="patient-title">Ficha do Paciente</h1>
+            <div className="patient-actions">
+              <button className="patient-btn-secondary">
+                Voltar à Lista
+              </button>
+              {!isEditing ? (
+                <button className="patient-btn-primary" onClick={handleEdit}>
+                  Editar Paciente
+                </button>
+              ) : (
+                <>
+                  <button className="patient-btn-secondary" onClick={handleCancel}>
+                    Cancelar
+                  </button>
+                  <button className="patient-btn-primary" onClick={handleSave}>
+                    Guardar
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+
+
+
+
+          {/* Informações Gerais */}
+          <Informacao 
+            isEditing={isEditing}
+            data={patientData}
+            onChange={handleChange}
+          />
+
+
+          {/* Histórico Clínico */}
+          <div className="patient-section">
+            <div className="patient-section-header">
               <div>
-                <label className="login-label">Nome</label>
-                <input className="login-input" defaultValue="Joana" />
+                <h2 className="patient-section-title">Histórico Clínico</h2>
+                <p className="patient-section-subtitle">Registos em ordem cronológica</p>
               </div>
-
-              <div>
-                <label className="login-label">Apelido</label>
-                <input className="login-input" defaultValue="Oliveira" />
-              </div>
-
-              <div>
-                <label className="login-label">Data de nascimento</label>
-                <input className="login-input" defaultValue="14/10/1998" />
-              </div>
-
-              <div>
-                <label className="login-label">Morada</label>
-                <input className="login-input" defaultValue="Portugal, Viseu" />
-              </div>
-
-              <div>
-                <label className="login-label">Status histórico</label>
-                <input className="login-input" defaultValue="Ativo — 13/05/2009" />
-              </div>
-
-              <div>
-                <label className="login-label">Login</label>
-                <input className="login-input" defaultValue="Paciente" />
-              </div>
-
-              <div>
-                <label className="login-label">Estatuto</label>
-                <input className="login-input" defaultValue="Trabalhador" />
-              </div>
+              <button className="patient-btn-small">
+                Ver mais detalhes
+              </button>
             </div>
 
-            <h3 className="consultas-title">Consultas</h3>
-            <Table />
-          </section>
-
-          <aside style={{width: 260}}>
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <div style={{width:96, height:96, borderRadius: '50%', background:'#ddd', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:12}}> </div>
-              <h4>Joana Oliveira</h4>
-
-              <div style={{marginTop:12, textAlign:'left', width: '100%'}}>
-                <p style={{margin:'8px 0'}}> abcd@gmail.com</p>
-                <p style={{margin:'8px 0'}}> Agenda</p>
-                <p style={{margin:'8px 0'}}> 937547920</p>
-                <p style={{margin:'8px 0'}}> Corporate CV</p>
-              </div>
-
-              <div style={{marginTop:20, display:'flex', gap:12, width:'100%'}}>
-                <button className="login-btn" style={{flex:1, background:'#caa86a'}}>Voltar</button>
-                <button className="login-btn" style={{flex:1, background:'#f6b844'}}>Confirmar</button>
+            {/* Nota clínica */}
+            <div className="patient-card">
+              <div className="patient-card-content">
+                <div className="patient-card-body">
+                  <h3 className="patient-card-title">Nota clínica adicionada</h3>
+                  <p className="patient-card-meta">12/05/2025 • Dr. Alex Morgan</p>
+                  <p className="patient-card-text">Texto: Dor lombar crónica, recomendado fisioterapia 2x/semana.</p>
+                </div>
+                <span className="patient-card-badge">#HC-1021</span>
               </div>
             </div>
-          </aside>
+          </div>
+
+          {/* Exames e Testes */}
+          <Exames />
+
+          {/* Anexos Clínicos */}
+          <AnexosClinicos />
+
+          {/* RGPD / Consentimentos */}
+          <RGPDConsentimentos />
+
+          {/* Planos de Tratamento */}
+          <div className="patient-section-large">
+            <div className="patient-section-header">
+              <div>
+                <h2 className="patient-section-title">Planos de Tratamento</h2>
+                <p className="patient-section-subtitle">Histórico e estado dos planos</p>
+              </div>
+              <button className="patient-btn-export">
+                Exportar PDF
+              </button>
+            </div>
+
+            <div className="patient-card">
+              <div className="patient-plan-row">
+                <div>
+                  <h3 className="patient-card-title">Plano 2025-Q2 • Versão 1.3</h3>
+                </div>
+                <span className="patient-status-badge">Ativo</span>
+                <span className="patient-date-text">12/05/2025</span>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
